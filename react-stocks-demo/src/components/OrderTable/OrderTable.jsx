@@ -32,8 +32,8 @@ const OrderTable = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((transaction, key) => (
-              <OrderTableRow key={key} transaction={transaction} />
+            {orders.map((transaction, index) => (
+              <OrderTableRow key={index} transaction={transaction} />
             ))}
           </tbody>
         </table>

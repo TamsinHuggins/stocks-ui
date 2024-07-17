@@ -1,6 +1,6 @@
 const OrderTableRow = (props) => {
   return (
-    <tr key={props.key}>
+    <tr>
       <td>{props.transaction.created.toLocaleString()}</td>
       <td>{props.transaction.statusCode}</td>
       <td>{props.transaction.type}</td>
