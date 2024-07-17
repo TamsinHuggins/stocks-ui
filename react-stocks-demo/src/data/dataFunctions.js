@@ -18,18 +18,22 @@ export const placeNewOrder = (ticker, quantity, buyOrSell) => {
   const stock = dummyStocks.find((stock) => stock.ticker === ticker);
 
   const newOrder = {
-    created: new Date(),
-    statusCode: "PENDING",
-    ticker: ticker,
+    created: new Date().toISOString(),
+    statusCode: "INITIALIZED",
     type: buyOrSell,
+    ticker: ticker,
     quantity: quantity,
     price: stock.price,
   };
 
-  return axios({
-    url: `${serverURL}/trade`,
-    method: "POST",
-    headers: { Accept: "application/json" },
-    data: newOrder,
-  });
+  console.log(newOrder);
+
+  axios
+    .post(`${serverURL}/trade`, newOrder)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };

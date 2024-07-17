@@ -11,9 +11,8 @@ const PurchaseStock = (props) => {
 
   const handleBuy = (ticker, quantity, buyOrSell) => {
     setBought(1);
-    placeNewOrder(ticker, quantity, buyOrSell).then((response) => {
-      console.log(response);
-    });
+
+    placeNewOrder(ticker, quantity, buyOrSell);
   };
 
   const changeTicker = (e) => {
