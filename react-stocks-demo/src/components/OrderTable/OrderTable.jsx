@@ -13,10 +13,6 @@ const OrderTable = () => {
     });
   }, []);
 
-  getOrders().then((response) => {
-    setOrders(response.data);
-  });
-
   return (
     <div>
       <h1>Orders</h1>
