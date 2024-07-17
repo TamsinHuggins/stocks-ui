@@ -1,5 +1,4 @@
 const OrderTableRow = (props) => {
-  console.log("from trans table", props.transaction);
   return (
     <tr key={props.key}>
       <td>{props.transaction.created.toLocaleString()}</td>

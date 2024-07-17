@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getDummyOrders } from "../../data/dummyData";
 import OrderTableRow from "./OrderTableRow";
 import { getOrders } from "../../data/dataFunctions";
 
 const OrderTable = () => {
-  const dummyOrders = getDummyOrders();
-
   const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    //code that i want to run when the dependency array changes
+    getOrders().then((response) => {
+      setOrders(response.data);
+    });
+  }, []);
 
   getOrders().then((response) => {
     setOrders(response.data);

@@ -1,11 +1,20 @@
 import { useState } from "react";
 import { getDummyStocks } from "../../data/dummyData";
+import { placeNewOrder } from "../../data/dataFunctions";
 
 const PurchaseStock = (props) => {
   const dummyStocks = getDummyStocks();
 
   const [selectedTicker, setSelectedTicker] = useState("xxx");
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const [bought, setBought] = useState(0); // currently can only be used once per page load
+
+  const handleBuy = (ticker, quantity, buyOrSell) => {
+    setBought(1);
+    placeNewOrder(ticker, quantity, buyOrSell).then((response) => {
+      console.log(response);
+    });
+  };
 
   const changeTicker = (e) => {
     const chosenTicker = e.target.value;
@@ -60,7 +69,7 @@ const PurchaseStock = (props) => {
           />
 
           <button
-            onClick={() => props.buyFunc(selectedTicker, selectedQuantity)}
+            onClick={() => handleBuy(selectedTicker, selectedQuantity, "BUY")}
           >
             Buy
           </button>
