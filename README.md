@@ -5,7 +5,7 @@ Demo react stock portfolio UI, connects to a Swagger back end.
 ## Run the Demo
 
 ```
-git clone https://github.com/TamsinHuggins/stocks-ui-no-backend.git
+git clone https://github.com/TamsinHuggins/stocks-ui.git
 cd react-stocks-demo
 npm install
 npm run dev
