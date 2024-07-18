@@ -5,13 +5,21 @@ import { getOrders } from "../../data/dataFunctions";
 
 const OrderTable = () => {
   const [orders, setOrders] = useState([]);
+  const [timedCounter, setTimedCounter] = useState(0);
+
+  useEffect(() => {}, []);
 
   useEffect(() => {
-    //code that i want to run when the dependency array changes
+    const interval = setInterval(() => {
+      setTimedCounter((counter) => counter + 1);
+    }, 1000);
+
     getOrders().then((response) => {
       setOrders(response.data);
     });
-  }, []);
+
+    return () => clearInterval(interval);
+  }, [timedCounter]);
 
   return (
     <div>
