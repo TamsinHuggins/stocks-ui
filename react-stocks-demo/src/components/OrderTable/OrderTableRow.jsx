@@ -1,12 +1,12 @@
 const OrderTableRow = (props) => {
   return (
     <tr>
-      <td>{props.transaction.created.toLocaleString()}</td>
-      <td>{props.transaction.statusCode}</td>
-      <td>{props.transaction.type}</td>
-      <td>{props.transaction.ticker}</td>
-      <td>{props.transaction.quantity}</td>
-      <td>{props.transaction.price}</td>
+      <td>{props.order.created}</td>
+      <td>{props.order.statusCode}</td>
+      <td>{props.order.type}</td>
+      <td>{props.order.ticker}</td>
+      <td>{props.order.quantity}</td>
+      <td>{props.order.price}</td>
     </tr>
   );
 };
