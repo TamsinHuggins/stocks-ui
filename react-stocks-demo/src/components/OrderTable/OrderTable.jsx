@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { getDummyOrders } from "../../data/dummyData";
 import OrderTableRow from "./OrderTableRow";
 import { getOrders } from "../../data/dataFunctions";
 
 const OrderTable = () => {
   const [orders, setOrders] = useState([]);
   const [timedCounter, setTimedCounter] = useState(0);
-
-  useEffect(() => {}, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -40,8 +37,8 @@ const OrderTable = () => {
             </tr>
           </thead>
           <tbody>
-            {orders.map((transaction, index) => (
-              <OrderTableRow key={index} transaction={transaction} />
+            {orders.map((order, index) => (
+              <OrderTableRow key={index} order={order} />
             ))}
           </tbody>
         </table>
